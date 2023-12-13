@@ -17,7 +17,7 @@ The code will be made available upon acceptance.
 
 #### Paper
 Submitted to IEEE RA-L on December 1, 2023.
-Preprint available at arXiv: TODO.
+Preprint available at [arXiv](https://arxiv.org/pdf/2312.07337.pdf).
 
 #### How to cite
 ```
@@ -25,7 +25,7 @@ Preprint available at arXiv: TODO.
   title   = {{RMS: Redundancy-Minimizing Point Cloud Sampling for Real-Time Pose Estimation in Degenerated Environments}}, 
   author  = {Petracek, Pavel and Alexis, Kostas and Saska, Martin}, 
   year    = {2023},
-  journal = {arXiv:TODO},
+  journal = {arXiv:2312.07337},
   note    = {Submitted to IEEE RA-L on December 1, 2023}
 }
 ```
