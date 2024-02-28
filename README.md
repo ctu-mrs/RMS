@@ -11,6 +11,9 @@
   * **single parameter only -> depends on the SLAM pipeline (and not the environment!)**
     * tuned just once given your pipeline
   * deterministic (no data for learning needed) 
+  * when is it (probably) not going to perform well:
+    * the data have large orientation changes between two consecutive frames (tens of degrees)
+    * under heavy noise (such as dust clouds)
 
 #### Code & How to
 The code will be made available upon acceptance.
