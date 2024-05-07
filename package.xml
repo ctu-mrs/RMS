@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rms</name>
+  <version>0.0.0</version>
+
+  <description>
+    C++ implementation of "Redundancy-Minimizing Point Cloud Sampling for Real-Time Pose Estimation" paper.
+  </description>
+
+  <author     email="petrapa6@fel.cvut.cz"></author>
+  <maintainer email="petrapa6@fel.cvut.cz"></maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>nodelet</depend>
+  <depend>sensor_msgs</depend>
+  <depend>pcl_ros</depend>
+  <depend>mrs_lib</depend>
+
+  <export>
+    <nodelet plugin="${prefix}/plugins.xml" />
+  </export>
+
+</package>

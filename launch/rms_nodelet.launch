@@ -1,0 +1,51 @@
+<launch>
+
+  <arg name="NS" default="$(optenv UAV_NAME)" />
+
+  <arg name="standalone"        default="true" />
+  <arg name="debug"             default="false" />
+  <arg name="custom_config"     default="" />
+  <arg name="node_name"         default="rms_nodelet" />
+  <arg name="name_postfix"      default="" />
+
+  <!-- Inputs -->
+  <arg name="points_in" default="/$(arg NS)/os_cloud_nodelet/points_processed" />
+
+  <!-- Outputs -->
+  <arg name="points_out" default="$(arg points_in)_filtered" />
+
+  <!-- Debug? -->
+  <arg     if="$(arg debug)" name="launch_prefix" value="valgrind --tool=callgrind" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+
+  <!-- Standalone? -->
+  <arg if="$(eval arg('standalone') or arg('debug'))" name="nodelet" value="standalone" />
+  <arg if="$(eval arg('standalone') or arg('debug'))" name="nodelet_manager" value="" />
+
+  <!-- Nodeleted? -->
+  <arg name="nodelet_manager_name" default="$(arg NS)_rms_nodelet_manager" />
+  <arg if="$(eval not arg('standalone') and not arg('debug'))" name="nodelet" value="load" />
+  <arg if="$(eval not arg('standalone') and not arg('debug'))" name="nodelet_manager" value="$(arg nodelet_manager_name)" />
+
+  <!-- Postfix? -->
+  <arg     if="$(eval arg('name_postfix') == '')" name="nodelet_name" value="$(arg node_name)" />
+  <arg unless="$(eval arg('name_postfix') == '')" name="nodelet_name" value="$(arg node_name)_$(arg name_postfix)" />
+
+  <group ns="$(arg NS)">
+
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_name)" args="$(arg nodelet) rms/RMSNodelet $(arg nodelet_manager)" output="screen" launch-prefix="$(arg launch_prefix)">
+
+      <rosparam file="$(find rms)/config/default.yaml" command="load" />
+      <rosparam if="$(eval not arg('custom_config') == '')" file="$(arg custom_config)" command="load" />
+
+      <!-- Subscribers -->
+      <remap from="~points_in" to="$(arg points_in)" />
+
+      <!-- Publishers -->
+      <remap from="~points_out" to="$(arg points_out)" />
+
+    </node>
+
+  </group>
+
+</launch>

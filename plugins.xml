@@ -1,0 +1,7 @@
+<library path="lib/libRMSNodelet">
+  <class name="rms/RMSNodelet" type="rms::RMSNodelet" base_class_type="nodelet::Nodelet">
+  <description>
+    ROS1 nodelet publishing RMS-ed LiDAR data.
+  </description>
+  </class>
+</library>
