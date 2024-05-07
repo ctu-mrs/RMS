@@ -39,7 +39,7 @@ roslaunch rms rms_nodelet.launch NS:=<NAMESPACE> points_in:=<POINTS IN TOPIC> po
 ```
 2) Use as library in your code:
   - add `rms` among dependencies in `CMakeLists.txt` and `package.xml` and include the `<rms/rms.h>` header file
-  - basic usage: `<rms/rms.h>` and use as in [src/rms_nodelet.cpp](https://github.com/ctu-mrs/RMS/blob/master/src/rms_nodelet.cpp) example
+  - basic usage:
     ```cpp
     #include <rms/rms.h>
     ...
