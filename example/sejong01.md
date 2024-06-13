@@ -30,8 +30,11 @@ High level of information preserved.
 ![data rms](./fig/plot_RMS.png)
 
 ### APE and RPE comparison
-Blue: pure KISS-ICP, orange: KISS-ICP preceded by RMS.
-Results: Higher drift reduction by RMS.
+Graphs: pure KISS-ICP in blue KISS-ICP preceded by RMS in orange.
+
+Results: High drift reduction by RMS.
+
+#### APE
 
 | Sampling method | RMSE (m)      | mean (m) | median (m) | max (m) |
 | -------------   | ------------- | -------- | ---------- | ------- |
@@ -39,6 +42,8 @@ Results: Higher drift reduction by RMS.
 | RMS             | 2230          | 1953     | 2352       | 3292    |
 
 ![ape rms](./fig/APE_comparison.png)
+
+#### RPE
 
 | Sampling method | RMSE (m)      | mean (m) | median (m) | max (m) |
 | -------------   | ------------- | -------- | ---------- | ------- |
