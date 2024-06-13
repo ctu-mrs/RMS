@@ -74,7 +74,7 @@ source ~/ROS1_WORKSPACE/devel/setup.sh
   roslaunch kiss_icp odometry.launch bagfile:=<PATH TO ROSBAG> topic:=/mulran/velo/pointclouds use_RMS:=[true | false]
 ```
 
-[**Results for the `Sejong01` experiment here.**](https://github.com/ctu-mrs/RMS/blob/master/example/sejong01.md).
+[**Results for the `Sejong01` experiment here.**](https://github.com/ctu-mrs/RMS/blob/master/example/sejong01.md)
 APE of the experiment (voxelization in blue, RMS in orange):
 
 ![ape rms](./example/fig/APE_comparison.png)

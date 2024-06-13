@@ -30,18 +30,20 @@ High level of information preserved.
 ![data rms](./fig/plot_RMS.png)
 
 ### APE and RPE comparison
-$${\color{blue}\text{Blue}$$: pure KISS-ICP, $${\color{orange}\text{orange}$$: KISS-ICP preceded by RMS.
+Blue: pure KISS-ICP, orange: KISS-ICP preceded by RMS.
 Results: Higher drift reduction by RMS.
 
-| Sampling method | RMSE (m) | mean (m) | median (m) | max (m) |
-| Voxelization    | 7100     | 6511     | 7815       | 9581    |
-| RMS             | 2230     | 1953     | 2352       | 3292    |
+| Sampling method | RMSE (m)      | mean (m) | median (m) | max (m) |
+| -------------   | ------------- | -------- | ---------- | ------- |
+| Voxelization    | 7100          | 6511     | 7815       | 9581    |
+| RMS             | 2230          | 1953     | 2352       | 3292    |
 
 ![ape rms](./fig/APE_comparison.png)
 
-| Sampling method | RMSE (m) | mean (m) | median (m) | max (m) |
-| Voxelization    | 17.9     | 4.3      | 2.7        | 1311.6  |
-| RMS             | 3.1      | 2.9      | 2.6        | 21.6    |
+| Sampling method | RMSE (m)      | mean (m) | median (m) | max (m) |
+| -------------   | ------------- | -------- | ---------- | ------- |
+| Voxelization    | 17.9          | 4.3      | 2.7        | 1311.6  |
+| RMS             | 3.1           | 2.9      | 2.6        | 21.6    |
 
 ![rpe rms](./fig/RPE_comparison.png)
 
