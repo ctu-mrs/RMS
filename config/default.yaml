@@ -2,5 +2,5 @@ lambda: 0.004 # <0, 1>         | Alg 1: L5 | tune for your estimation pipeline
 K:      10    # number of bins | Alg 1: L4 | should not need to be changed
 
 voxelization:
-  input:  0.2 # (0, inf) (m) | applied before RMS | Alg 1: L3 | lower: higher timing, higher: lower timing
-  output: 0.2 # <0, inf) (m) | applied after RMS
+  input:  0.4 # (0, inf) (m) | applied before RMS | Alg 1: L3 | lower: higher timing, higher: lower timing
+  output: 0.4 # <0, inf) (m) | applied after RMS (only when greater than 'voxelization/input')

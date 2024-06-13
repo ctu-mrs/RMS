@@ -195,7 +195,8 @@ void RMS::voxelizeIndices(const float voxel_size, const t_points pc_in, t_indice
       continue;
     }
 
-    const auto voxel = t_voxel((Eigen::Vector3f(pt.x, pt.y, pt.z) / voxel_size).cast<int>());
+    const auto pt_eig = Eigen::Vector3f(pt.x, pt.y, pt.z);
+    const auto voxel = t_voxel((pt_eig / voxel_size).cast<int>());
 
     // voxel occupied: erase this point's index
     if (grid.contains(voxel)) {

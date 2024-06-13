@@ -52,10 +52,32 @@ roslaunch rms rms_nodelet.launch NS:=<NAMESPACE> points_in:=<POINTS IN TOPIC> po
     sensor_msgs::PointCloud2::Ptr msg = ...;
     rms->sample(msg); // 'msg' now contains sampled data
     ```
-  - **example**: `RMSNodelet` implemented in [src/rms_nodelet.cpp](https://github.com/ctu-mrs/RMS/blob/master/src/rms_nodelet.cpp)
+  - **example usage**: `RMSNodelet` implemented in [src/rms_nodelet.cpp](https://github.com/ctu-mrs/RMS/blob/master/src/rms_nodelet.cpp)
 
-### Example
-[WORK IN PROGRESS] To be added in coming days.
+### Run it yourself
+To complement the in-paper experiments, we offer comparison on the [MulRan](https://sites.google.com/view/mulran-pr/dataset) dataset by plugging its 3D LiDAR (Ouster OS1-64) data to the [KISS-ICP](https://github.com/PRBonn/kiss-icp) odometry.
+For **ROS Noetic**, you may follow this workflow:
+
+1) Click [here](todo) to download the `Sejong01` sequence rosbag.
+2) Install RMS (see `Installation` above).
+3) Clone, compile, and source our [KISS-ICP fork](https://github.com/petrapa6/kiss-icp) (minor changes made for ROS Noetic and launching).
+```bash
+cd ~/ROS1_WORKSPACE/src
+git clone git@github.com:petrapa6/kiss-icp.git
+cd kiss_icp
+git checkout noetic
+catkin build --this
+source ~/ROS1_WORKSPACE/devel/setup.sh
+```
+4) Launch as:
+```bash
+  roslaunch kiss_icp odometry.launch bagfile:=<PATH TO ROSBAG> topic:=/mulran/velo/pointclouds use_RMS:=[true | false]
+```
+
+[**Results for the `Sejong01` experiment here.**](https://github.com/ctu-mrs/RMS/blob/master/example/sejong01.md).
+APE of the experiment (voxelization in blue, RMS in orange):
+
+![ape rms](./example/fig/APE_comparison.png)
 
 ## How to cite
 ```tex

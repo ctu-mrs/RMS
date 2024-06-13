@@ -16,6 +16,7 @@ public:
 
 private:
   bool _is_initialized = false;
+  bool _verbose        = false;
 
   ros::Subscriber _sub_points;
   void            callbackPointCloud(const sensor_msgs::PointCloud2::ConstPtr &msg);
@@ -42,6 +43,7 @@ void RMSNodelet::onInit() {
   // Load parameters and setup objects
   mrs_lib::ParamLoader param_loader = mrs_lib::ParamLoader(nh, "RMSNodelet");
 
+  param_loader.loadParam<bool>("verbose", _verbose);
   _rms = std::make_unique<RMS>(param_loader);
 
   if (!param_loader.loadedSuccessfully()) {
@@ -79,8 +81,9 @@ void RMSNodelet::callbackPointCloud(const sensor_msgs::PointCloud2::ConstPtr &ms
   const size_t size_after = msg_out->width * msg_out->height;
   _frame_no++;
   _t_total += runtime;
-  NODELET_INFO("[RMSNodelet] RMS sampling -> %ld/%ld pts | compression: %.2f %s | timing: %.2f ms (avg: %0.2f ms)", size_after, size_before,
-               100.0f - 100.0f * (float(size_after) / float(size_before)), "%", runtime, _t_total / float(_frame_no));
+
+  NODELET_INFO_COND(_verbose, "[RMSNodelet] RMS sampling -> %ld/%ld pts | compression: %.2f %s | timing: %.2f ms (avg: %0.2f ms)", size_after, size_before,
+                    100.0f - 100.0f * (float(size_after) / float(size_before)), "%", runtime, _t_total / float(_frame_no));
 
   // Publish
   publishCloud(_pub_points, msg_out);

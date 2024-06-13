@@ -2,11 +2,12 @@
 
   <arg name="NS" default="$(optenv UAV_NAME)" />
 
-  <arg name="standalone"        default="true" />
-  <arg name="debug"             default="false" />
-  <arg name="custom_config"     default="" />
-  <arg name="node_name"         default="rms_nodelet" />
-  <arg name="name_postfix"      default="" />
+  <arg name="standalone"     default="true" />
+  <arg name="debug"          default="false" />
+  <arg name="custom_config"  default="" />
+  <arg name="node_name"      default="rms_nodelet" />
+  <arg name="name_postfix"   default="" />
+  <arg name="verbose"        default="false" />
 
   <!-- Inputs -->
   <arg name="points_in" default="/$(arg NS)/os_cloud_nodelet/points_processed" />
@@ -37,6 +38,8 @@
 
       <rosparam file="$(find rms)/config/default.yaml" command="load" />
       <rosparam if="$(eval not arg('custom_config') == '')" file="$(arg custom_config)" command="load" />
+      
+      <param name="verbose" value="$(arg verbose)" />
 
       <!-- Subscribers -->
       <remap from="~points_in" to="$(arg points_in)" />
