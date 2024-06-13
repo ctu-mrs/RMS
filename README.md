@@ -58,7 +58,7 @@ roslaunch rms rms_nodelet.launch NS:=<NAMESPACE> points_in:=<POINTS IN TOPIC> po
 To complement the in-paper experiments, we offer comparison on the [MulRan](https://sites.google.com/view/mulran-pr/dataset) dataset by plugging its 3D LiDAR (Ouster OS1-64) data to the [KISS-ICP](https://github.com/PRBonn/kiss-icp) odometry.
 For **ROS Noetic**, you may follow this workflow:
 
-1) Click [here](todo) to download the `Sejong01` sequence rosbag.
+1) Click [here](https://nasmrs.felk.cvut.cz/index.php/s/HTafD4V175CLkiK/download) to download the `Sejong01` sequence rosbag (beware: 56 GB).
 2) Install RMS (see `Installation` above).
 3) Clone, compile, and source our [KISS-ICP fork](https://github.com/petrapa6/kiss-icp) (minor changes made for ROS Noetic and launching).
 ```bash
