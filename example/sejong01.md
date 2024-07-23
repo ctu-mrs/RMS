@@ -30,7 +30,9 @@ High level of information preserved.
 ![data rms](./fig/plot_RMS.png)
 
 ### APE and RPE comparison
-Graphs: pure KISS-ICP in blue KISS-ICP preceded by RMS in orange.
+Graphs: 
+- blue: KISS-ICP
+- orange: KISS-ICP preceded by RMS
 
 Results: High drift reduction by RMS.
 
