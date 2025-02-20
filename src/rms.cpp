@@ -20,6 +20,11 @@ void RMS::sample(sensor_msgs::PointCloud2::Ptr &msg_inout) {
   t_points pts;
   this->fromROSMsg(msg_inout, pts);
 
+  if (pts->empty()) {
+    ROS_WARN("[RMS] Empty cloud received. Nothing to sample.");
+    return;
+  }
+
   // Setup a vector of point indices 0->N
   t_indices indices = t_indices(pts->size());
   std::iota(std::begin(indices), std::end(indices), 0);
